@@ -43,6 +43,16 @@ class Diary {
         }
         return new Diary(response.rows[0]);
     }
+
+    static async update(data, id) {
+        const response = await db.query("UPDATE diaries SET title = $1, content = $2 WHERE post_id = $3 RETURNING post_id, title, content;",
+            [data.title, data.content, id ]);
+        console.log(response);
+        if (response.rows.length != 1) {
+            throw new Error("Unable to update votes.")
+        }
+        return new Diary(response.rows[0]);
+    }
 }
 
 module.exports = Diary
