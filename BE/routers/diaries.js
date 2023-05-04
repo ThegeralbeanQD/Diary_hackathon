@@ -9,4 +9,3 @@ diaryRouter.get("/", diaryController.index);
 
 module.exports = diaryRouter
 
-

@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
     })
 })
 
+
 app.use("/diaries", diariesRouter);
 // app.use("/usesr", userRouter);
 
 module.exports = app;
-
