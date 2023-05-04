@@ -1,21 +1,21 @@
 const db = require('../database/connect');
 
 class Diary {
-    constructor({postId, title, content, category,
-    postTime, postDate, mood, userId}){
-        this.postId = postId
+    constructor({post_id, title, content, category,
+    post_time, post_date, mood, user_id}){
+        this.post_id = post_id
         this.title = title
         this.content = content
         this.category = category
-        this.postTime = postTime
-        this.postDate = postDate
+        this.post_time = post_time
+        this.post_date = post_date
         this.mood = mood
-        this.userId = userId
+        this.userId = user_id
     }
 
     static async getAll() {
-        const response = await db.query("SELECT * FROM diaries");
-        return response.rows.map(d => new Diary(p));
+        const response = await db.query("SELECT title, content, category, post_time, post_date, mood FROM diaries");
+        return response.rows.map(d => new Diary(d));
     }
 
     static async getOneById(id) {
@@ -44,3 +44,5 @@ class Diary {
         return new Snack(response.rows[0]);
     }
 }
+
+module.exports = Diary

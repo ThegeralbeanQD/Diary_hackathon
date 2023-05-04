@@ -3,7 +3,7 @@ const cors = require('cors');
 const logger = require('morgan');
 
 const diariesRouter = require('./routers/diaries');
-const userRouter = require('./routers/user');
+const userRouter = require('./routers/users');
 
 
 const app = express();
@@ -21,6 +21,6 @@ app.get("/", (req, res) => {
 
 
 app.use("/diaries", diariesRouter);
-app.use("/users", userRouter);
+// app.use("/usesr", userRouter);
 
 module.exports = app;
